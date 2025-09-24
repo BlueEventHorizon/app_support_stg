@@ -16,16 +16,10 @@ const CONFIG = {
         mainEmail: "contact.btype@gmail.com",
 
         // プライバシー関連の問い合わせ
-        privacyEmail: "privacy@example.com",
+        privacyEmail: "contact.btype@gmail.com",
 
         // サポート専用メール
-        supportEmail: "support@example.com",
-
-        // 営業時間
-        businessHours: "平日 9:00 - 18:00",
-
-        // 返信目安
-        responseTime: "2-3営業日"
+        supportEmail: "contact.btype@gmail.com"
     },
 
     // Formspree設定
@@ -41,14 +35,6 @@ const CONFIG = {
             copyright: "© 2025 Beowulf-Technology. All rights reserved.",
             description: "シンプルで使いやすい連絡先管理アプリです。"
         }
-    },
-
-    // 法的情報（利用規約用）
-    legal: {
-        companyFullName: "株式会社〇〇",
-        companyAddress: "東京都〇〇区〇〇",
-        latePaymentRate: "14.6%", // 遅延損害金の利率
-        childAgeLimit: "13歳" // 子どもの年齢制限
     },
 
     // ソーシャルメディア（オプション）
