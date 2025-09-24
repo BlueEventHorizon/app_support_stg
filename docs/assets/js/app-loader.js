@@ -136,10 +136,20 @@ function renderPricing(pricing) {
     let html = '';
 
     if (pricing.type === 'free') {
-        html = '<p>完全無料でご利用いただけます。</p>';
+        // 完全無料
+        html = `<p>${pricing.note || '完全無料でご利用いただけます。'}</p>`;
+
     } else if (pricing.type === 'paid') {
-        html = `<p>価格: ${pricing.price}</p>`;
+        // 買い切り
+        html = `
+            <div class="pricing-paid">
+                <p class="price">${pricing.price}</p>
+                ${pricing.note ? `<p class="pricing-note">${pricing.note}</p>` : ''}
+            </div>
+        `;
+
     } else if (pricing.type === 'freemium') {
+        // フリーミアム（無料＋有料版）
         html = `
             <div class="pricing-plans">
                 <div class="plan free-plan">
@@ -158,6 +168,45 @@ function renderPricing(pricing) {
                 </div>
             </div>
             ${pricing.note ? `<p class="pricing-note">${pricing.note}</p>` : ''}
+        `;
+
+    } else if (pricing.type === 'subscription') {
+        // サブスクリプション
+        html = `
+            <div class="pricing-plans">
+                ${pricing.plans.map(plan => `
+                    <div class="plan">
+                        <h4>${plan.name}</h4>
+                        <p class="price">${plan.price}</p>
+                        ${plan.features ? `
+                            <ul>
+                                ${plan.features.map(f => `<li>${f}</li>`).join('')}
+                            </ul>
+                        ` : ''}
+                    </div>
+                `).join('')}
+            </div>
+            ${pricing.trial ? `<p class="pricing-trial">${pricing.trial}</p>` : ''}
+            ${pricing.note ? `<p class="pricing-note">${pricing.note}</p>` : ''}
+        `;
+
+    } else if (pricing.type === 'iap') {
+        // アプリ内課金
+        html = `
+            <div class="pricing-iap">
+                <p>基本: ${pricing.base}</p>
+                <h4>追加購入オプション</h4>
+                <div class="iap-items">
+                    ${pricing.purchases.map(item => `
+                        <div class="iap-item">
+                            <span class="iap-name">${item.name}</span>
+                            <span class="iap-price">${item.price}</span>
+                            ${item.description ? `<p class="iap-desc">${item.description}</p>` : ''}
+                        </div>
+                    `).join('')}
+                </div>
+                ${pricing.note ? `<p class="pricing-note">${pricing.note}</p>` : ''}
+            </div>
         `;
     }
 
