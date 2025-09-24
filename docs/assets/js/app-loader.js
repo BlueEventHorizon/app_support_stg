@@ -251,9 +251,9 @@ function renderMetadata(metadata) {
 
     const items = [];
     if (metadata.category) items.push(`カテゴリ: ${metadata.category}`);
-    if (metadata.size) items.push(`サイズ: ${metadata.size}`);
     if (metadata.contentRating) items.push(`年齢: ${metadata.contentRating}`);
     if (metadata.developer) items.push(`開発元: ${metadata.developer}`);
+    if (metadata.compatibility) items.push(`互換性: ${metadata.compatibility}`);
 
     if (items.length > 0) {
         metaElement.innerHTML = `

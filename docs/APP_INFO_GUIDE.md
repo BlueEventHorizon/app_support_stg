@@ -245,10 +245,9 @@
   "category": "ユーティリティ",  // App Storeカテゴリ
   "contentRating": "4+",         // 年齢制限
   "developer": "Beowulf-Technology", // 開発元
-  "size": "約 25MB",             // アプリサイズ
   "compatibility": "iOS 14.0以降", // 互換性情報
-  "releaseDate": "2024-01-01",   // リリース日
-  "updateFrequency": "月1回程度"  // 更新頻度
+  "releaseDate": "2024-01-01",   // リリース日（オプション）
+  "updateFrequency": "月1回程度"  // 更新頻度（オプション）
 }
 ```
 
