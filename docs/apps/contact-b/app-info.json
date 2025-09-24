@@ -5,9 +5,9 @@
     "tagline": "割安通話にも対応したシンプルで使いやすい「連絡先」アプリ",
     "description": "格安SIMの通話料節約サービスと連携して、電話代を安くできる連絡先アプリ。大切な連絡先を整理して、スマートに管理できます。",
     "icon": {
-      "type": "fontawesome",
-      "value": "fa-address-book",
-      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      "type": "image",
+      "value": "assets/images/contact-b-icon.png",
+      "gradient": ""
     },
     "version": "2.1.0",
     "lastUpdated": "2025-09-24"

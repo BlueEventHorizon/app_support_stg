@@ -54,13 +54,18 @@ function renderAppBasicInfo(app) {
     // アイコン
     const iconElement = document.querySelector('[data-app="icon"]');
     if (iconElement && app.icon) {
-        iconElement.style.background = app.icon.gradient;
         if (app.icon.type === 'fontawesome') {
+            iconElement.style.background = app.icon.gradient;
             iconElement.innerHTML = `<i class="fas ${app.icon.value}"></i>`;
         } else if (app.icon.type === 'emoji') {
+            iconElement.style.background = app.icon.gradient;
             iconElement.textContent = app.icon.value;
         } else if (app.icon.type === 'image') {
-            iconElement.innerHTML = `<img src="${app.icon.value}" alt="${app.name}">`;
+            iconElement.style.background = 'transparent';
+            iconElement.style.padding = '0';
+            iconElement.style.overflow = 'hidden';
+            iconElement.style.borderRadius = '22.5%'; // App Store標準の角丸比率
+            iconElement.innerHTML = `<img src="${app.icon.value}" alt="${app.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
         }
     }
 }
