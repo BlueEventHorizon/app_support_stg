@@ -111,7 +111,7 @@ background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);
 ```html
 <footer>
     <div class="container">
-        <p>&copy; 2024 [アプリ名]. All rights reserved.</p>
+        <p>&copy; 2025 [アプリ名]. All rights reserved.</p>
         <p>
             <a href="privacy.html" style="color: white; margin-right: 1rem;">プライバシーポリシー</a>
             <a href="terms.html" style="color: white;">利用規約</a>

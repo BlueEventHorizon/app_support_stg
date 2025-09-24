@@ -1,35 +1,83 @@
 # カスタマイズガイド
 
-## 必須変更項目
+## 🚀 簡単設定（推奨）
 
-### 1. メールアドレスの変更
-以下のファイルのメールアドレスを実際のものに変更してください：
+**重要**: 2025年9月以降、すべての設定は `docs/assets/js/config.js` ファイル1箇所で管理できるようになりました。
 
-| ファイル | 行番号 | 現在の値 | 変更例 |
-|---------|--------|----------|--------|
-| `docs/index.html` | 65 | `support@example.com` | `support@yourcompany.com` |
-| `docs/apps/contact-b/privacy.html` | 146 | `privacy@example.com` | `privacy@yourcompany.com` |
-| `docs/apps/contact-b/support.html` | 157 | `support@example.com` | `support@yourcompany.com` |
+### config.js での一括設定
 
-### 2. Formspree設定
+`docs/assets/js/config.js` ファイルを開いて、以下の項目を変更するだけです：
+
+```javascript
+// 1. メールアドレスの設定
+contact: {
+    mainEmail: "support@yourcompany.com",     // メインの問い合わせ
+    privacyEmail: "privacy@yourcompany.com",  // プライバシー関連
+    supportEmail: "support@yourcompany.com",  // サポート専用
+}
+
+// 2. Formspreeの設定
+formspree: {
+    formId: "xdojwvyz"  // Formspreeで取得したForm ID
+}
+
+// 3. 会社情報
+company: {
+    name: "株式会社〇〇",
+    copyright: "© 2025 株式会社〇〇. All rights reserved.",
+}
+```
+
+これで全ページの表示が自動的に更新されます！
+
+### Formspree設定の手順
 1. [Formspree](https://formspree.io)でアカウント作成
 2. 新しいフォームを作成
-3. Form IDを取得
-4. `docs/apps/contact-b/support.html`の66行目を変更：
-   ```html
-   <!-- 変更前 -->
-   <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+3. Form IDを取得（URLの `https://formspree.io/f/XXXXX` の XXXXX 部分）
+4. `config.js` の `formspree.formId` に設定
 
-   <!-- 変更後（例） -->
-   <form action="https://formspree.io/f/xdojwvyz" method="POST">
-   ```
+## 📝 config.js で設定可能な項目一覧
 
-### 3. 会社/サービス情報
-全ファイルのフッターにある著作権表記を変更：
-- 現在: `© 2024 連絡先【B】. All rights reserved.`
-- 変更例: `© 2024 株式会社〇〇. All rights reserved.`
+```javascript
+// 会社・サービス情報
+company: {
+    name: "アプリサポートセンター",
+    copyright: "© 2025 アプリサポートセンター. All rights reserved.",
+}
 
-### 4. アプリ固有情報の更新
+// 連絡先情報
+contact: {
+    mainEmail: "support@example.com",
+    privacyEmail: "privacy@example.com",
+    supportEmail: "support@example.com",
+    businessHours: "平日 9:00 - 18:00",
+    responseTime: "2-3営業日"
+}
+
+// 法的情報
+legal: {
+    companyFullName: "株式会社〇〇",
+    companyAddress: "東京都〇〇区〇〇",
+    latePaymentRate: "14.6%",
+    childAgeLimit: "13歳"
+}
+
+// アプリ情報
+apps: {
+    contactB: {
+        name: "連絡先【B】",
+        copyright: "© 2025 連絡先【B】. All rights reserved.",
+    }
+}
+```
+
+## ✅ 設定変更の確認方法
+
+1. `config.js` を編集
+2. ブラウザで `docs/index.html` を開く
+3. メールアドレスや著作権表記が変更されていることを確認
+
+## 手動設定が必要な項目
 
 #### 利用規約（terms.html）で確認すべき項目：
 - 運営者名/会社名
@@ -131,7 +179,7 @@ SNS共有時の表示を最適化：
 <div class="legal-content">
     <h1>更新履歴</h1>
 
-    <h2>バージョン 2.1.0（2024年1月15日）</h2>
+    <h2>バージョン 2.1.0（2025年1月15日）</h2>
     <ul>
         <li>新機能: ダークモード対応</li>
         <li>改善: 検索速度の向上</li>
@@ -194,15 +242,17 @@ Header set X-Content-Type-Options "nosniff"
 
 ## チェックリスト
 
-- [ ] メールアドレスを全て実際のものに変更
-- [ ] Formspree IDを設定
-- [ ] 会社名/サービス名を更新
+### 必須項目 🅱️
+- [ ] `config.js` でメールアドレスを設定
+- [ ] `config.js` でFormspree IDを設定
+- [ ] `config.js` で会社名/サービス名を設定
 - [ ] 利用規約の法的内容を確認
 - [ ] プライバシーポリシーの内容を確認
+
+### 推奨項目 💡
 - [ ] ロゴ/ファビコンを追加
 - [ ] App Store/Google Playリンクを追加
-- [ ] Google Analytics設定
+- [ ] Google Analytics設定 (`config.js` の `analytics.gaId`)
 - [ ] OGPタグ設定
 - [ ] スクリーンショット追加
 - [ ] FAQ内容の充実
-- [ ] 問い合わせ先の最終確認

@@ -6,6 +6,8 @@
     <title>サポート - 連絡先【B】</title>
     <meta name="description" content="連絡先【B】アプリケーションのサポート。お問い合わせはこちらから。">
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- 設定ファイル -->
+    <script src="../../assets/js/config.js"></script>
 </head>
 <body>
     <header>
@@ -63,7 +65,7 @@
 
                 <!-- Formspree フォーム -->
                 <!-- 注意: YOUR_FORM_ID を実際のFormspree IDに置き換えてください -->
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm" data-config="formspree.formId">
 
                     <div class="form-group">
                         <label for="name">お名前 <span class="required">*</span></label>
@@ -154,7 +156,7 @@
                 <h3 style="margin-top: 1.5rem;">メールでのお問い合わせ</h3>
                 <p>フォームが利用できない場合は、以下のメールアドレスまで直接お問い合わせください：</p>
                 <p style="font-size: 1.1rem; margin: 1rem 0;">
-                    <strong>support@example.com</strong>
+                    <strong data-config="contact.supportEmail">support@example.com</strong>
                 </p>
 
                 <h3 style="margin-top: 2rem;">お問い合わせの際のお願い</h3>
@@ -171,7 +173,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 連絡先【B】. All rights reserved.</p>
+            <p data-copyright="contactB">&copy; 2025 連絡先【B】. All rights reserved.</p>
             <p>
                 <a href="privacy.html" style="color: white; margin-right: 1rem;">プライバシーポリシー</a>
                 <a href="terms.html" style="color: white;">利用規約</a>

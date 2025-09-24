@@ -6,6 +6,8 @@
     <title>プライバシーポリシー - 連絡先【B】</title>
     <meta name="description" content="連絡先【B】アプリケーションのプライバシーポリシーです。個人情報の取り扱いについて説明しています。">
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- 設定ファイル -->
+    <script src="../../assets/js/config.js"></script>
 </head>
 <body>
     <header>
@@ -143,7 +145,7 @@
             <ul>
                 <li><strong>アプリ内：</strong>設定 → サポート → お問い合わせ</li>
                 <li><strong>ウェブサイト：</strong><a href="support.html">サポートページ</a></li>
-                <li><strong>メール：</strong>privacy@example.com</li>
+                <li><strong>メール：</strong><span data-config="contact.privacyEmail">privacy@example.com</span></li>
             </ul>
 
             <h2>12. 法的根拠（GDPR適用地域）</h2>
@@ -166,7 +168,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 連絡先【B】. All rights reserved.</p>
+            <p data-copyright="contactB">&copy; 2025 連絡先【B】. All rights reserved.</p>
             <p>
                 <a href="privacy.html" style="color: white; margin-right: 1rem;">プライバシーポリシー</a>
                 <a href="terms.html" style="color: white;">利用規約</a>
