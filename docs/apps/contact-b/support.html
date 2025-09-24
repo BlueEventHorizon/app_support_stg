@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- 設定ファイル -->
     <script src="../../assets/js/config.js"></script>
+    <!-- メールフォームハンドラー -->
+    <script src="../../assets/js/mailto-form.js" defer></script>
 </head>
 <body>
     <header>
@@ -51,9 +53,7 @@
                     <p>お問い合わせの前に、アプリを最新バージョンにアップデートしているかご確認ください。多くの問題は最新版で解決されています。</p>
                 </div>
 
-                <!-- Formspree フォーム -->
-                <!-- 注意: YOUR_FORM_ID を実際のFormspree IDに置き換えてください -->
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm" data-config="formspree.formId">
+                <form id="contactForm">
 
                     <div class="form-group">
                         <label for="name">お名前 <span class="required">*</span></label>
@@ -112,10 +112,6 @@
                                   placeholder="できるだけ詳しくご記入ください。&#10;&#10;不具合の場合：&#10;- いつ発生したか&#10;- どのような操作をしたか&#10;- エラーメッセージの内容&#10;- 再現性があるか"></textarea>
                     </div>
 
-                    <!-- Formspree用の隠しフィールド -->
-                    <input type="hidden" name="_subject" value="連絡先【B】サポート問い合わせ">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="text" name="_gotcha" style="display:none">
 
                     <div class="form-group">
                         <label style="display: flex; align-items: flex-start; gap: 0.5rem;">
@@ -127,7 +123,7 @@
                     </div>
 
                     <div style="text-align: center; margin-top: 2rem;">
-                        <button type="submit" class="btn" id="submitBtn">送信する</button>
+                        <button type="submit" class="btn" id="submitBtn">メールで送信</button>
                     </div>
                 </form>
 
@@ -135,26 +131,6 @@
             </div>
         </section>
 
-        <section style="margin-top: 3rem;">
-            <div class="card">
-                <h2>その他のサポート方法</h2>
-
-                <h3 style="margin-top: 1.5rem;">メールでのお問い合わせ</h3>
-                <p>フォームが利用できない場合は、以下のメールアドレスまで直接お問い合わせください：</p>
-                <p style="font-size: 1.1rem; margin: 1rem 0;">
-                    <strong><span data-config="contact.supportEmail">contact.btype@gmail.com</span></strong>
-                </p>
-
-                <h3 style="margin-top: 2rem;">お問い合わせの際のお願い</h3>
-                <ul>
-                    <li>お使いのデバイスとOSバージョンをお知らせください</li>
-                    <li>アプリのバージョンをお知らせください</li>
-                    <li>問題が発生した際の詳しい状況をお知らせください</li>
-                    <li>可能であればスクリーンショットを添付してください</li>
-                    <li>エラーメッセージが表示された場合は、その内容をお知らせください</li>
-                </ul>
-            </div>
-        </section>
     </main>
 
     <footer>
@@ -167,24 +143,5 @@
         </div>
     </footer>
 
-    <script>
-    // フォーム送信時の処理（Formspreeは自動的に処理しますが、UX向上のため）
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.textContent = '送信中...';
-        submitBtn.disabled = true;
-    });
-
-    // Formspreeのレスポンス処理（オプション）
-    window.addEventListener('load', function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('success') === 'true') {
-            const formMessage = document.getElementById('formMessage');
-            formMessage.innerHTML = '<div class="alert alert-success">お問い合わせありがとうございます。内容を確認の上、ご連絡させていただきます。</div>';
-            formMessage.style.display = 'block';
-            document.getElementById('contactForm').style.display = 'none';
-        }
-    });
-    </script>
 </body>
 </html>

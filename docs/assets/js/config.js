@@ -22,12 +22,6 @@ const CONFIG = {
         supportEmail: "contact.btype@gmail.com"
     },
 
-    // Formspree設定
-    formspree: {
-        // FormspreeのForm ID（https://formspree.io/f/XXXXX の XXXXX 部分）
-        formId: "YOUR_FORM_ID"
-    },
-
     // 各アプリの情報
     apps: {
         contactB: {
@@ -62,9 +56,6 @@ function applyConfig() {
                 // メールアドレスの場合はmailtoリンクも設定
                 element.href = `mailto:${value}`;
                 element.textContent = value;
-            } else if (element.tagName === 'FORM' && configPath === 'formspree.formId') {
-                // Formspreeのaction属性を設定
-                element.action = `https://formspree.io/f/${value}`;
             } else {
                 // その他のテキスト要素
                 element.textContent = value;

@@ -8,7 +8,7 @@ iOSアプリケーションのサポートサイトです。静的サイトジ�
 - 🚀 ビルドプロセス不要の静的サイト
 - 📝 Markdownファイルによるドキュメント管理
 - 🔧 JSONベースのコンテンツ管理（app-info.json）
-- 📧 Google Apps Scriptによる無料のお問い合わせフォーム
+- 📧 シンプルなmailtoリンクによるお問い合わせフォーム
 - ⚙️ 中央集約型の設定管理（config.js）
 
 ## ディレクトリ構成
@@ -25,7 +25,7 @@ docs/
 │       ├── home-loader.js       # トップページ用データローダー
 │       ├── app-loader.js        # アプリ詳細ページ用ローダー
 │       ├── markdown-loader.js   # Markdownファイルローダー
-│       └── contact-handler.js  # フォーム送信ハンドラー
+│       └── mailto-form.js      # メールフォームハンドラー
 └── apps/
     └── contact-b/               # アプリごとのディレクトリ
         ├── app-info.json        # アプリの全情報
@@ -56,26 +56,27 @@ const CONFIG = {
 
     // 連絡先情報
     contact: {
-        mainEmail: "your-email@example.com",
-        supportEmail: "support@example.com"
-    },
-
-    // Google Apps Script設定
-    googleAppsScript: {
-        url: "YOUR_GOOGLE_APPS_SCRIPT_URL"  // 設定手順は下記参照
+        mainEmail: "contact.btype@gmail.com",
+        supportEmail: "contact.btype@gmail.com"
     }
 };
 ```
 
-### 2. お問い合わせフォームの設定
+### 2. お問い合わせフォームの仕組み
 
-Google Apps Scriptを使用した無料のフォーム実装：
+シンプルなmailtoリンクを使用したフォーム実装：
 
-1. [SELF_HOSTED_FORM.md](SELF_HOSTED_FORM.md) の手順に従って Google Apps Script を設定
-2. デプロイ後のURLを `config.js` の `googleAppsScript.url` に設定
-3. テスト送信して動作確認
+✅ **メリット**:
+- サーバー不要
+- 完全無料
+- ユーザーが送信内容を確認可能
+- プライバシー保護（データを保存しない）
 
-詳細な手順は [SELF_HOSTED_FORM.md](SELF_HOSTED_FORM.md) を参照してください。
+**仕組み**:
+1. ユーザーがフォームに入力
+2. 送信ボタンクリックでJavaScriptが内容を取得
+3. mailtoリンクを生成してメールクライアントを起動
+4. ユーザーがメールを送信
 
 ### 3. ローカルサーバーでの動作確認
 
@@ -150,18 +151,32 @@ App Store標準の22.5%角丸が自動適用されます。
 - app-info.json の設定を確認
 - ブラウザの開発者ツールでエラーを確認
 
-### フォームが送信されない
+### メールクライアントが開かない
 
-- Google Apps Script のURLが正しく設定されているか確認
-- Google Apps Script が正しくデプロイされているか確認
-- ブラウザの開発者ツールでエラーを確認
+- ブラウザの設定でメールクライアントが設定されているか確認
+- 代替案：表示されたメールアドレスに直接送信
+
+## 現在のステータス
+
+### ✅ 実装済み機能
+
+- お問い合わせフォーム（mailtoリンク方式）
+- アプリ詳細ページ（連絡先【B】）
+- プライバシーポリシー・利用規約
+- 動的コンテンツ読み込み（JSON/Markdown）
+- レスポンシブデザイン
+
+### 📝 今後の追加予定
+
+- 追加アプリのサポートページ
+- FAQ の充実
+- 多言語対応（必要に応じて）
 
 ## 技術スタック
 
 - **HTML5** - 構造
 - **CSS3** - スタイリング
 - **JavaScript (ES6+)** - 動的機能
-- **Google Apps Script** - フォーム処理
 - **Font Awesome** - アイコン
 - **Marked.js** - Markdown変換
 
@@ -174,5 +189,3 @@ App Store標準の22.5%角丸が自動適用されます。
 - [APP_INFO_GUIDE.md](APP_INFO_GUIDE.md) - app-info.json の詳細仕様
 - [APP_TEMPLATE.md](APP_TEMPLATE.md) - 新規アプリ追加の完全ガイド
 - [CUSTOMIZE.md](CUSTOMIZE.md) - カスタマイズガイド
-- [SELF_HOSTED_FORM.md](SELF_HOSTED_FORM.md) - Google Apps Script セットアップ
-- [FORMSPREE_SETUP.md](FORMSPREE_SETUP.md) - Formspree セットアップ（代替案）

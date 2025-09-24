@@ -29,10 +29,6 @@ const CONFIG = {
         supportEmail: "contact.btype@gmail.com"   // サポート用
     },
 
-    // Google Apps Script設定（お問い合わせフォーム用）
-    googleAppsScript: {
-        url: "YOUR_GOOGLE_APPS_SCRIPT_URL"  // Google Apps ScriptのWeb App URL
-    },
 
     // 各アプリの情報
     apps: {
