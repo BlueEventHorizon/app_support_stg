@@ -1,209 +1,106 @@
 # 新規アプリ追加テンプレート
 
-## 1. ディレクトリ構造
+このドキュメントでは、新しいアプリをサポートサイトに追加する手順を説明します。
 
-新しいアプリを追加する場合、以下のディレクトリ構造を作成してください：
+## 必要なファイル構成
 
 ```
-docs/
-└── apps/
-    └── [app-folder-name]/     # 例: task-manager, photo-editor など
-        ├── app-info.json       # アプリ情報（料金、機能、FAQなど）
-        ├── index.html          # アプリ概要ページ
-        ├── terms.md            # 利用規約（マークダウン）
-        ├── terms.html          # 利用規約（表示用HTML）
-        ├── privacy.md          # プライバシーポリシー（マークダウン）
-        ├── privacy.html        # プライバシーポリシー（表示用HTML）
-        └── support.html        # サポートフォーム
+docs/apps/your-app-id/
+├── app-info.json       # アプリの全情報を管理
+├── index.html           # アプリ詳細ページ
+├── support.html         # サポートページ
+├── privacy.md           # プライバシーポリシー（Markdown）
+├── privacy.html         # プライバシーポリシー表示用HTML
+├── terms.md            # 利用規約（Markdown）
+├── terms.html          # 利用規約表示用HTML
+└── assets/
+    └── images/
+        └── your-app-icon.png  # アプリアイコン画像
 ```
 
-## 2. トップページへの追加
+## 1. app-info.json の作成
 
-`docs/index.html` のアプリ一覧セクションに以下のカードを追加：
-
-### 基本テンプレート
-
-```html
-<!-- [アプリ名]アプリ -->
-<div class="card app-card">
-    <div class="app-header">
-        <div class="app-icon" style="background: linear-gradient(135deg, #[色1] 0%, #[色2] 100%);">
-            [絵文字]
-        </div>
-        <h3>[アプリ名]</h3>
-    </div>
-    <p class="app-description">[アプリの説明文（50-100文字程度）]</p>
-    <div class="app-features">
-        <span class="feature-tag">[特徴1]</span>
-        <span class="feature-tag">[特徴2]</span>
-        <span class="feature-tag">[特徴3]</span>
-    </div>
-    <div class="app-links">
-        <a href="apps/[app-folder-name]/" class="link-item">
-            <span>📋</span> アプリ概要
-        </a>
-        <a href="apps/[app-folder-name]/support.html" class="link-item">
-            <span>💬</span> サポート
-        </a>
-        <a href="apps/[app-folder-name]/terms.html" class="link-item">
-            <span>📜</span> 利用規約
-        </a>
-        <a href="apps/[app-folder-name]/privacy.html" class="link-item">
-            <span>🔒</span> プライバシー
-        </a>
-    </div>
-    <div class="app-actions">
-        <a href="apps/[app-folder-name]/" class="btn btn-primary">詳細を見る</a>
-    </div>
-</div>
-```
-
-### カラーグラデーション例
-
-```css
-/* ブルー系 */
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-
-/* ピンク系 */
-background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-
-/* グリーン系 */
-background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
-
-/* オレンジ系 */
-background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-
-/* パープル系 */
-background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-
-/* レッド系 */
-background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-
-/* ティール系 */
-background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
-
-/* イエロー系 */
-background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);
-```
-
-## 3. 各ページのテンプレート
-
-### 共通ナビゲーション
-
-すべてのページに以下のナビゲーションを含めてください：
-
-```html
-<header>
-    <nav class="container">
-        <ul>
-            <li class="nav-brand">
-                <a href="../../">アプリサポートセンター</a>
-            </li>
-            <li><a href="../../">ホーム</a></li>
-            <li><a href="index.html">[アプリ名]</a></li>
-            <li><a href="terms.html">利用規約</a></li>
-            <li><a href="privacy.html">プライバシーポリシー</a></li>
-            <li><a href="support.html">サポート</a></li>
-        </ul>
-    </nav>
-</header>
-```
-
-### 共通フッター
-
-```html
-<footer>
-    <div class="container">
-        <p>&copy; 2025 [アプリ名]. All rights reserved.</p>
-        <p>
-            <a href="privacy.html" style="color: white; margin-right: 1rem;">プライバシーポリシー</a>
-            <a href="terms.html" style="color: white;">利用規約</a>
-        </p>
-    </div>
-</footer>
-```
-
-## 4. 実装例（タスク管理アプリ）
-
-```html
-<!-- タスク管理Proアプリ -->
-<div class="card app-card">
-    <div class="app-header">
-        <div class="app-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-            ✅
-        </div>
-        <h3>タスク管理Pro</h3>
-    </div>
-    <p class="app-description">効率的なタスク管理で生産性を向上。チームでの共有も簡単です。</p>
-    <div class="app-features">
-        <span class="feature-tag">タスク管理</span>
-        <span class="feature-tag">チーム共有</span>
-        <span class="feature-tag">リマインダー</span>
-    </div>
-    <div class="app-links">
-        <a href="apps/task-manager/" class="link-item">
-            <span>📋</span> アプリ概要
-        </a>
-        <a href="apps/task-manager/support.html" class="link-item">
-            <span>💬</span> サポート
-        </a>
-        <a href="apps/task-manager/terms.html" class="link-item">
-            <span>📜</span> 利用規約
-        </a>
-        <a href="apps/task-manager/privacy.html" class="link-item">
-            <span>🔒</span> プライバシー
-        </a>
-    </div>
-    <div class="app-actions">
-        <a href="apps/task-manager/" class="btn btn-primary">詳細を見る</a>
-    </div>
-</div>
-```
-
-## 5. app-info.json の作成
-
-アプリの情報（機能、料金、FAQ等）を `app-info.json` で管理します。
-詳細な記述方法は [APP_INFO_GUIDE.md](APP_INFO_GUIDE.md) を参照してください。
-
-### 最小限の例
+最も重要なファイルです。このファイルから全ページに情報が自動的に展開されます。
 
 ```json
 {
   "app": {
-    "id": "my-app",
-    "name": "マイアプリ",
-    "tagline": "便利なアプリです",
-    "description": "このアプリは便利な機能を提供します",
+    "id": "your-app-id",
+    "name": "アプリ名",
+    "tagline": "キャッチコピー",
+    "description": "アプリの説明文",
     "icon": {
-      "type": "emoji",
-      "value": "📱",
-      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      "type": "image",
+      "value": "assets/images/your-app-icon.png"
     },
     "version": "1.0.0",
     "lastUpdated": "2025-09-24"
   },
+
+  "features": {
+    "main": [
+      {
+        "title": "主要機能1",
+        "icon": "fas fa-star",
+        "description": "機能の説明"
+      },
+      {
+        "title": "主要機能2",
+        "icon": "fas fa-heart",
+        "description": "機能の説明"
+      }
+    ],
+    "additional": [
+      "追加機能1",
+      "追加機能2",
+      "追加機能3"
+    ]
+  },
+
   "requirements": {
     "ios": {
-      "minVersion": "14.0",
-      "devices": ["iPhone"],
+      "minVersion": "17.0",
+      "devices": ["iPhone", "iPad"],
       "languages": ["日本語"],
-      "universal": false
+      "universal": true
     }
   },
+
   "pricing": {
-    "type": "free"  // "free" | "paid" | "freemium" | "subscription" | "iap"
+    "type": "free",
+    "note": "完全無料でご利用いただけます"
+  },
+
+  "faq": [
+    {
+      "question": "よくある質問1",
+      "answer": "回答1"
+    },
+    {
+      "question": "よくある質問2",
+      "answer": "回答2"
+    }
+  ],
+
+  "links": {
+    "appStore": "https://apps.apple.com/jp/app/...",
+    "googlePlay": "",
+    "support": "support.html",
+    "privacy": "privacy.html",
+    "terms": "terms.html"
+  },
+
+  "metadata": {
+    "category": "カテゴリ名",
+    "contentRating": "4+",
+    "developer": "開発者名"
   }
 }
 ```
 
-## 6. マークダウンファイルのテンプレート
+## 2. index.html の作成
 
-### privacy.md と terms.md
-
-利用規約とプライバシーポリシーはマークダウンファイル（.md）で管理します。
-`docs/apps/contact-b/` 内の `privacy.md` と `terms.md` を参考にして作成してください。
-
-HTMLファイル（privacy.html, terms.html）は以下のテンプレートを使用：
+アプリ詳細ページのテンプレート：
 
 ```html
 <!DOCTYPE html>
@@ -211,7 +108,223 @@ HTMLファイル（privacy.html, terms.html）は以下のテンプレートを�
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[ページタイトル] - [アプリ名]</title>
+    <title>アプリ名 - アプリサポートセンター</title>
+    <meta name="description" content="アプリの説明">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/js/app-loader.js"></script>
+
+    <style>
+        .app-header-section {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .app-icon-large {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 25px;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <ul>
+                <li class="nav-brand">
+                    <a href="../../">アプリサポートセンター</a>
+                </li>
+                <li><a href="../../">ホーム</a></li>
+                <li><a href="index.html" class="active">アプリ名</a></li>
+                <li><a href="terms.html">利用規約</a></li>
+                <li><a href="privacy.html">プライバシーポリシー</a></li>
+                <li><a href="support.html">サポート</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- アプリヘッダー -->
+        <section class="app-header-section">
+            <div class="app-icon-large" data-app="icon">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h1 data-app="title">アプリ名</h1>
+            <p data-app="tagline">キャッチコピー</p>
+            <p data-app="description" style="max-width: 600px; margin: 1rem auto;">説明文</p>
+
+            <div style="margin-top: 2rem;">
+                <a href="#" data-app="link-appstore" style="display:none;">
+                    <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
+                         alt="App Store" style="height: 50px;">
+                </a>
+            </div>
+        </section>
+
+        <!-- 主な機能 -->
+        <section>
+            <div class="card">
+                <h2>主な機能</h2>
+                <div class="feature-grid" data-app="features-main">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- その他の機能 -->
+        <section>
+            <div class="card">
+                <h2>その他の機能</h2>
+                <div data-app="features-additional">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 動作環境 -->
+        <section>
+            <div class="card">
+                <h2>動作環境</h2>
+                <div data-app="requirements">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 料金プラン -->
+        <section>
+            <div class="card">
+                <h2>料金プラン</h2>
+                <div data-app="pricing">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- よくある質問 -->
+        <section>
+            <div class="card">
+                <h2>よくある質問</h2>
+                <div data-app="faq">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- アプリ情報 -->
+        <section>
+            <div class="card">
+                <h2>アプリ情報</h2>
+                <div data-app="metadata">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- サポート情報 -->
+        <section style="margin-top: 3rem;">
+            <div class="card" style="text-align: center;">
+                <h2>サポート情報</h2>
+                <p>ご不明な点やお困りの際は、お気軽にお問い合わせください。</p>
+                <div style="margin-top: 2rem;">
+                    <a href="support.html" class="btn">お問い合わせフォーム</a>
+                </div>
+                <div style="margin-top: 2rem;">
+                    <a href="terms.html" style="margin-right: 2rem;">利用規約</a>
+                    <a href="privacy.html">プライバシーポリシー</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p data-copyright="main">&copy; 2025 Beowulf-Technology. All rights reserved.</p>
+            <p>
+                <a href="privacy.html" style="color: white; margin-right: 1rem;">プライバシーポリシー</a>
+                <a href="terms.html" style="color: white;">利用規約</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+```
+
+## 3. privacy.md の作成
+
+```markdown
+# プライバシーポリシー
+
+## 1. 個人情報の取り扱いについて
+
+本アプリは、ユーザーの個人情報を一切収集しません。
+
+## 2. データの保存について
+
+アプリの設定情報は端末内に保存されます。これらの情報は、アプリをアンインストールすると削除されます。
+
+## 3. 権限について
+
+本アプリは以下の権限を使用します：
+
+- 必要な権限をここに記載
+
+## 4. 第三者への提供
+
+本アプリは、いかなる個人情報も第三者に提供、共有、販売することはありません。
+
+## 5. お問い合わせ
+
+プライバシーポリシーに関するご質問は、[サポートページ](support.html)のお問い合わせフォームからご連絡ください。
+
+---
+
+最終更新日: 2025年9月24日
+```
+
+## 4. privacy.html の作成
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プライバシーポリシー - アプリ名</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
     <script src="../../assets/js/config.js"></script>
@@ -219,71 +332,91 @@ HTMLファイル（privacy.html, terms.html）は以下のテンプレートを�
 </head>
 <body>
     <header>
-        <!-- ナビゲーション -->
+        <nav class="container">
+            <ul>
+                <li class="nav-brand">
+                    <a href="../../">アプリサポートセンター</a>
+                </li>
+                <li><a href="../../">ホーム</a></li>
+                <li><a href="index.html">アプリ名</a></li>
+                <li><a href="terms.html">利用規約</a></li>
+                <li><a href="privacy.html" class="active">プライバシーポリシー</a></li>
+                <li><a href="support.html">サポート</a></li>
+            </ul>
+        </nav>
     </header>
+
     <main class="container">
-        <div class="legal-content" id="[content-id]" data-markdown="[markdown-file].md">
+        <div class="legal-content" id="privacy-content" data-markdown="privacy.md">
             <div style="text-align: center; padding: 2rem;">
                 <i class="fas fa-spinner fa-spin"></i> 読み込み中...
             </div>
         </div>
     </main>
+
     <footer>
-        <!-- フッター -->
+        <div class="container">
+            <p data-copyright="main">&copy; 2025 Beowulf-Technology. All rights reserved.</p>
+            <p>
+                <a href="privacy.html" style="color: white; margin-right: 1rem;">プライバシーポリシー</a>
+                <a href="terms.html" style="color: white;">利用規約</a>
+            </p>
+        </div>
     </footer>
 </body>
 </html>
 ```
 
-## 7. 設定ファイルの更新
+## 5. トップページへの追加
 
-`docs/assets/js/config.js` に新しいアプリの情報を追加：
+`/docs/index.html` のアプリ一覧セクションに以下を追加：
 
-```javascript
-apps: {
-    // 既存のアプリ...
-    [appKey]: {
-        name: "[アプリ名]",
-        copyright: "© 2025 [会社名]. All rights reserved.",
-        description: "[アプリの説明]"
-    }
-}
+```html
+<div class="card app-card">
+    <div class="app-header">
+        <div class="app-icon" data-app-icon="your-app-id">
+            <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3 data-app-name="your-app-id">アプリ名</h3>
+    </div>
+    <p class="app-description" data-app-desc="your-app-id">
+        アプリの説明文
+    </p>
+    <div class="app-links">
+        <a href="apps/your-app-id/" class="link-item">
+            <span>📋</span> アプリ概要
+        </a>
+        <a href="apps/your-app-id/support.html" class="link-item">
+            <span>💬</span> サポート
+        </a>
+        <a href="apps/your-app-id/terms.html" class="link-item">
+            <span>📜</span> 利用規約
+        </a>
+        <a href="apps/your-app-id/privacy.html" class="link-item">
+            <span>🔒</span> プライバシー
+        </a>
+    </div>
+    <div class="app-actions">
+        <a href="apps/your-app-id/" class="btn btn-primary">詳細を見る</a>
+    </div>
+</div>
 ```
 
-## 8. チェックリスト
+## 注意点
 
-新しいアプリを追加する際のチェックリスト：
+1. **app-info.json が最重要** - 全ての動的コンテンツの元データ
+2. **アイコン画像** - App Store標準の22.5%角丸が自動適用
+3. **Markdownファイル** - HTTPサーバー経由でのみ動作（file://では読み込めない）
+4. **data属性による自動読み込み** - `data-app`、`data-app-icon`、`data-app-desc`など
 
-- [ ] `docs/apps/[app-folder-name]/` ディレクトリを作成
-- [ ] **app-info.json を作成**（料金、機能、FAQ等を設定）
-- [ ] index.html（概要ページ）を作成
-- [ ] terms.md と terms.html を作成
+## チェックリスト
+
+- [ ] app-info.json を作成
+- [ ] index.html を作成
+- [ ] support.html を作成
 - [ ] privacy.md と privacy.html を作成
-- [ ] support.html（サポートフォーム）を作成
-- [ ] 各ページのナビゲーションリンクを正しく設定
-- [ ] config.js にアプリ情報を追加
-- [ ] トップページ（docs/index.html）にアプリカードを追加
-- [ ] アプリアイコンの絵文字とカラーを選定
-- [ ] 機能タグを3-5個設定
-- [ ] すべてのリンクが正しく動作することを確認
-- [ ] レスポンシブデザインの確認
-
-## 9. 推奨絵文字
-
-アプリの種類に応じた絵文字の例：
-
-- 📱 連絡先・電話系
-- ✅ タスク・TODO系
-- 📷 写真・カメラ系
-- 🎵 音楽・メディア系
-- 💰 金融・家計簿系
-- 🏃 健康・フィットネス系
-- 📚 教育・学習系
-- 🎮 ゲーム系
-- 🗺️ 地図・ナビゲーション系
-- 💬 チャット・SNS系
-- 📊 ビジネス・分析系
-- 🎨 クリエイティブ系
-- ⚡ ユーティリティ系
-- 🔒 セキュリティ系
-- 📰 ニュース・情報系
+- [ ] terms.md と terms.html を作成
+- [ ] アイコン画像を配置
+- [ ] トップページに追加
+- [ ] config.js に必要な設定を追加（任意）
+- [ ] ローカルサーバーで動作確認
