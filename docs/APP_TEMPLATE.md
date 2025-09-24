@@ -8,9 +8,12 @@
 docs/
 └── apps/
     └── [app-folder-name]/     # 例: task-manager, photo-editor など
+        ├── app-info.json       # アプリ情報（料金、機能、FAQなど）
         ├── index.html          # アプリ概要ページ
-        ├── terms.html          # 利用規約
-        ├── privacy.html        # プライバシーポリシー
+        ├── terms.md            # 利用規約（マークダウン）
+        ├── terms.html          # 利用規約（表示用HTML）
+        ├── privacy.md          # プライバシーポリシー（マークダウン）
+        ├── privacy.html        # プライバシーポリシー（表示用HTML）
         └── support.html        # サポートフォーム
 ```
 
@@ -157,23 +160,115 @@ background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);
 </div>
 ```
 
-## 5. チェックリスト
+## 5. app-info.json の作成
+
+アプリの情報（機能、料金、FAQ等）を `app-info.json` で管理します。
+詳細な記述方法は [APP_INFO_GUIDE.md](APP_INFO_GUIDE.md) を参照してください。
+
+### 最小限の例
+
+```json
+{
+  "app": {
+    "id": "my-app",
+    "name": "マイアプリ",
+    "tagline": "便利なアプリです",
+    "description": "このアプリは便利な機能を提供します",
+    "icon": {
+      "type": "emoji",
+      "value": "📱",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+    },
+    "version": "1.0.0",
+    "lastUpdated": "2025-09-24"
+  },
+  "requirements": {
+    "ios": {
+      "minVersion": "14.0",
+      "devices": ["iPhone"],
+      "languages": ["日本語"],
+      "universal": false
+    }
+  },
+  "pricing": {
+    "type": "free"  // "free" | "paid" | "freemium" | "subscription" | "iap"
+  }
+}
+```
+
+## 6. マークダウンファイルのテンプレート
+
+### privacy.md と terms.md
+
+利用規約とプライバシーポリシーはマークダウンファイル（.md）で管理します。
+`docs/apps/contact-b/` 内の `privacy.md` と `terms.md` を参考にして作成してください。
+
+HTMLファイル（privacy.html, terms.html）は以下のテンプレートを使用：
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[ページタイトル] - [アプリ名]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/js/markdown-loader.js"></script>
+</head>
+<body>
+    <header>
+        <!-- ナビゲーション -->
+    </header>
+    <main class="container">
+        <div class="legal-content" id="[content-id]" data-markdown="[markdown-file].md">
+            <div style="text-align: center; padding: 2rem;">
+                <i class="fas fa-spinner fa-spin"></i> 読み込み中...
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- フッター -->
+    </footer>
+</body>
+</html>
+```
+
+## 7. 設定ファイルの更新
+
+`docs/assets/js/config.js` に新しいアプリの情報を追加：
+
+```javascript
+apps: {
+    // 既存のアプリ...
+    [appKey]: {
+        name: "[アプリ名]",
+        copyright: "© 2025 [会社名]. All rights reserved.",
+        description: "[アプリの説明]"
+    }
+}
+```
+
+## 8. チェックリスト
 
 新しいアプリを追加する際のチェックリスト：
 
 - [ ] `docs/apps/[app-folder-name]/` ディレクトリを作成
-- [ ] 4つの必須HTMLファイルを作成（index, terms, privacy, support）
+- [ ] **app-info.json を作成**（料金、機能、FAQ等を設定）
+- [ ] index.html（概要ページ）を作成
+- [ ] terms.md と terms.html を作成
+- [ ] privacy.md と privacy.html を作成
+- [ ] support.html（サポートフォーム）を作成
 - [ ] 各ページのナビゲーションリンクを正しく設定
-- [ ] Formspree Form IDを新規作成して設定
-- [ ] トップページにアプリカードを追加
-- [ ] 利用規約・プライバシーポリシーをアプリに合わせて更新
-- [ ] サポートフォームのカテゴリーを適切に設定
+- [ ] config.js にアプリ情報を追加
+- [ ] トップページ（docs/index.html）にアプリカードを追加
 - [ ] アプリアイコンの絵文字とカラーを選定
 - [ ] 機能タグを3-5個設定
 - [ ] すべてのリンクが正しく動作することを確認
 - [ ] レスポンシブデザインの確認
 
-## 6. 推奨絵文字
+## 9. 推奨絵文字
 
 アプリの種類に応じた絵文字の例：
 
