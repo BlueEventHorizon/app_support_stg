@@ -3,7 +3,7 @@
     "id": "contact-b",
     "name": "連絡先【B】",
     "tagline": "割安通話にも対応したシンプルで使いやすい「連絡先」アプリ",
-    "description": "大切な連絡先を安全に管理。シンプルなインターフェースで、必要な情報にすぐアクセスできます。",
+    "description": "格安SIMの通話料節約サービスと連携して、電話代を安くできる連絡先アプリ。大切な連絡先を整理して、スマートに管理できます。",
     "icon": {
       "type": "fontawesome",
       "value": "fa-address-book",
@@ -55,7 +55,7 @@
   "requirements": {
     "ios": {
       "minVersion": "17.6",
-      "devices": ["iPhone", "iPad", "iPod touch"],
+      "devices": ["iPhone", "iPad"],
       "languages": ["日本語"],
       "universal": true,
       "note": "現在iOS版のみの提供となっております。"

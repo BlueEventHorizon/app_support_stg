@@ -3,7 +3,6 @@
  */
 
 async function loadAppInfo() {
-    console.log('Loading app-info.json...');
     try {
         // app-info.json のパスを取得
         const response = await fetch('app-info.json');
@@ -12,7 +11,6 @@ async function loadAppInfo() {
         }
 
         const data = await response.json();
-        console.log('Loaded data:', data);
 
         // アプリ基本情報を反映
         renderAppBasicInfo(data.app);
