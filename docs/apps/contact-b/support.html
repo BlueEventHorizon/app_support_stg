@@ -6,6 +6,8 @@
     <title>サポート - 連絡先【B】</title>
     <meta name="description" content="連絡先【B】アプリケーションのサポート。お問い合わせはこちらから。">
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- 設定ファイル -->
+    <script src="../../assets/js/config.js"></script>
 </head>
 <body>
     <header>
@@ -38,18 +40,6 @@
                         <a href="index.html#faq" class="btn btn-secondary">FAQを見る</a>
                     </div>
                 </div>
-
-                <div class="card">
-                    <h3>対応時間</h3>
-                    <ul>
-                        <li>平日: 9:00 - 18:00</li>
-                        <li>土日祝日: お休み</li>
-                        <li>返信目安: 2-3営業日以内</li>
-                    </ul>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-                        ※緊急の技術的問題については、できる限り早急に対応いたします。
-                    </p>
-                </div>
             </div>
         </section>
 
@@ -63,7 +53,7 @@
 
                 <!-- Formspree フォーム -->
                 <!-- 注意: YOUR_FORM_ID を実際のFormspree IDに置き換えてください -->
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm" data-config="formspree.formId">
 
                     <div class="form-group">
                         <label for="name">お名前 <span class="required">*</span></label>
@@ -94,15 +84,13 @@
                             <option value="">選択してください</option>
                             <option value="iphone">iPhone</option>
                             <option value="ipad">iPad</option>
-                            <option value="android-phone">Androidスマートフォン</option>
-                            <option value="android-tablet">Androidタブレット</option>
-                            <option value="other">その他</option>
+                            <option value="ipod-touch">iPod touch</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="os-version">OSバージョン</label>
-                        <input type="text" id="os-version" name="os_version" placeholder="例: iOS 17.0, Android 14">
+                        <input type="text" id="os-version" name="os_version" placeholder="例: iOS 17.0, iOS 16.5">
                     </div>
 
                     <div class="form-group">
@@ -133,7 +121,7 @@
                         <label style="display: flex; align-items: flex-start; gap: 0.5rem;">
                             <input type="checkbox" required style="width: auto; margin-top: 0.25rem;">
                             <span>
-                                <a href="privacy.html" target="_blank">プライバシーポリシー</a>を確認し、同意します <span class="required">*</span>
+                                <a href="../../privacy.html" target="_blank">プライバシーポリシー</a>を確認し、同意します <span class="required">*</span>
                             </span>
                         </label>
                     </div>
@@ -154,7 +142,7 @@
                 <h3 style="margin-top: 1.5rem;">メールでのお問い合わせ</h3>
                 <p>フォームが利用できない場合は、以下のメールアドレスまで直接お問い合わせください：</p>
                 <p style="font-size: 1.1rem; margin: 1rem 0;">
-                    <strong>support@example.com</strong>
+                    <strong><span data-config="contact.supportEmail">contact.btype@gmail.com</span></strong>
                 </p>
 
                 <h3 style="margin-top: 2rem;">お問い合わせの際のお願い</h3>
@@ -171,7 +159,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 連絡先【B】. All rights reserved.</p>
+            <p data-copyright="contactB">&copy; 2025 連絡先【B】. All rights reserved.</p>
             <p>
                 <a href="privacy.html" style="color: white; margin-right: 1rem;">プライバシーポリシー</a>
                 <a href="terms.html" style="color: white;">利用規約</a>

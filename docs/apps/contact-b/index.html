@@ -3,9 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>連絡先【B】 - アプリサポート</title>
-    <meta name="description" content="連絡先【B】は、シンプルで使いやすい連絡先管理アプリです。大切な連絡先を安全に管理できます。">
+    <title>連絡先【B】 - アプリサポートセンター</title>
+    <meta name="description" content="連絡先【B】アプリのサポート情報、利用規約、プライバシーポリシーをご案内します。">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- 設定ファイル -->
+    <script src="../../assets/js/config.js"></script>
+    <!-- アプリ情報ローダー -->
+    <script src="../../assets/js/app-loader.js"></script>
+
+    <style>
+        /* アプリ固有のスタイル */
+        .app-header-section {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .app-icon-large {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 25px;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .pricing-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .plan {
+            padding: 1.5rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .premium-plan {
+            border-color: #667eea;
+            position: relative;
+        }
+
+        .premium-plan::before {
+            content: "おすすめ";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin: 1rem 0;
+        }
+
+        .plan ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .plan li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .plan li:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item {
+            margin: 2rem 0;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .metadata-info {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .meta-item {
+            display: inline-block;
+            margin: 0 0.5rem;
+            color: #666;
+        }
+
+        .note {
+            padding: 1rem;
+            background: #f0f8ff;
+            border-left: 4px solid #3498db;
+            color: #333;
+            margin-top: 1rem;
+        }
+
+        .pricing-note {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,7 +164,7 @@
                     <a href="../../">アプリサポートセンター</a>
                 </li>
                 <li><a href="../../">ホーム</a></li>
-                <li><a href="index.html">連絡先【B】</a></li>
+                <li><a href="index.html" class="active">連絡先【B】</a></li>
                 <li><a href="terms.html">利用規約</a></li>
                 <li><a href="privacy.html">プライバシーポリシー</a></li>
                 <li><a href="support.html">サポート</a></li>
@@ -24,92 +173,87 @@
     </header>
 
     <main class="container">
-        <div class="hero">
-            <h1>連絡先【B】</h1>
-            <p>シンプルで安全な連絡先管理アプリ</p>
-        </div>
+        <!-- アプリヘッダー -->
+        <section class="app-header-section">
+            <div class="app-icon-large" data-app="icon">
+                <i class="fas fa-address-book"></i>
+            </div>
+            <h1 data-app="title">連絡先【B】</h1>
+            <p data-app="tagline">シンプルで使いやすい連絡先管理アプリ</p>
+            <p data-app="description" style="max-width: 600px; margin: 1rem auto;">大切な連絡先を安全に管理。シンプルなインターフェースで、必要な情報にすぐアクセスできます。</p>
 
+            <!-- アプリダウンロードリンク -->
+            <div style="margin-top: 2rem;">
+                <a href="#" data-app="link-appstore" style="display:none;">
+                    <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="App Store" style="height: 50px;">
+                </a>
+                <a href="#" data-app="link-playstore" style="display:none;">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play" style="height: 70px;">
+                </a>
+            </div>
+        </section>
+
+        <!-- 主な機能 -->
         <section>
             <div class="card">
-                <h2>アプリの特徴</h2>
-                <ul style="list-style-type: none; padding: 0;">
-                    <li style="margin-bottom: 1rem;">
-                        <strong>📱 シンプルなインターフェース</strong><br>
-                        直感的な操作で、誰でも簡単に連絡先を管理できます。
-                    </li>
-                    <li style="margin-bottom: 1rem;">
-                        <strong>🔒 セキュアなデータ管理</strong><br>
-                        あなたの大切な連絡先情報を安全に保護します。
-                    </li>
-                    <li style="margin-bottom: 1rem;">
-                        <strong>⚡ 高速検索</strong><br>
-                        多数の連絡先から瞬時に目的の情報を見つけられます。
-                    </li>
-                    <li style="margin-bottom: 1rem;">
-                        <strong>🔄 バックアップ対応</strong><br>
-                        大切なデータを失わないよう、定期的なバックアップに対応。
-                    </li>
-                    <li style="margin-bottom: 1rem;">
-                        <strong>🎨 カスタマイズ可能</strong><br>
-                        お好みに合わせてテーマや表示方法を変更できます。
-                    </li>
-                </ul>
+                <h2>主な機能</h2>
+                <div class="feature-grid" data-app="features-main">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
             </div>
         </section>
 
+        <!-- その他の機能 -->
         <section>
-            <div class="app-grid">
-                <div class="card">
-                    <h3>主な機能</h3>
-                    <ul>
-                        <li>連絡先の追加・編集・削除</li>
-                        <li>グループ管理機能</li>
-                        <li>お気に入り登録</li>
-                        <li>詳細な検索フィルター</li>
-                        <li>連絡先のインポート/エクスポート</li>
-                        <li>複数の電話番号・メールアドレス対応</li>
-                        <li>メモ・タグ機能</li>
-                        <li>誕生日リマインダー</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>動作環境</h3>
-                    <h4 style="margin-top: 1rem;">iOS版</h4>
-                    <ul>
-                        <li>iOS 14.0以降</li>
-                        <li>iPhone、iPad、iPod touch対応</li>
-                        <li>日本語対応</li>
-                    </ul>
-
-                    <h4 style="margin-top: 1.5rem;">Android版</h4>
-                    <ul>
-                        <li>Android 7.0以降</li>
-                        <li>スマートフォン・タブレット対応</li>
-                        <li>日本語対応</li>
-                    </ul>
+            <div class="card">
+                <h2>その他の機能</h2>
+                <div data-app="features-additional">
+                    <!-- JavaScriptで動的に生成 -->
                 </div>
             </div>
         </section>
 
-        <section style="margin-top: 3rem;">
+        <!-- 動作環境 -->
+        <section>
+            <div class="card">
+                <h2>動作環境</h2>
+                <div data-app="requirements">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 料金プラン -->
+        <section>
+            <div class="card">
+                <h2>料金プラン</h2>
+                <div data-app="pricing">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- よくある質問 -->
+        <section>
             <div class="card">
                 <h2>よくある質問</h2>
-
-                <h3 style="margin-top: 1.5rem;">Q: アプリは無料ですか？</h3>
-                <p>A: 基本機能は無料でご利用いただけます。より高度な機能をご利用いただく場合は、アプリ内課金があります。</p>
-
-                <h3 style="margin-top: 1.5rem;">Q: データはどこに保存されますか？</h3>
-                <p>A: データは端末内に安全に保存されます。クラウドバックアップ機能（オプション）をご利用の場合は、暗号化された状態でクラウドに保存されます。</p>
-
-                <h3 style="margin-top: 1.5rem;">Q: 機種変更時のデータ移行は可能ですか？</h3>
-                <p>A: はい、バックアップ機能を使用することで、新しい端末へのデータ移行が可能です。</p>
-
-                <h3 style="margin-top: 1.5rem;">Q: 連絡先の最大登録数は？</h3>
-                <p>A: 無料版では1,000件まで、プレミアム版では無制限に登録可能です。</p>
+                <div data-app="faq">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
             </div>
         </section>
 
+        <!-- アプリ情報 -->
+        <section>
+            <div class="card">
+                <h2>アプリ情報</h2>
+                <div data-app="metadata">
+                    <!-- JavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- サポート情報 -->
         <section style="margin-top: 3rem;">
             <div class="card" style="text-align: center;">
                 <h2>サポート情報</h2>
@@ -127,7 +271,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 連絡先【B】. All rights reserved.</p>
+            <p data-copyright="contactB">&copy; 2025 連絡先【B】. All rights reserved.</p>
             <p>
                 <a href="privacy.html" style="color: white; margin-right: 1rem;">プライバシーポリシー</a>
                 <a href="terms.html" style="color: white;">利用規約</a>

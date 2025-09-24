@@ -8,6 +8,10 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- 設定ファイル -->
+    <script src="assets/js/config.js"></script>
+    <!-- トップページ用ローダー -->
+    <script src="assets/js/home-loader.js"></script>
 </head>
 <body>
     <header>
@@ -35,17 +39,12 @@
                 <!-- 連絡先【B】アプリ -->
                 <div class="card app-card">
                     <div class="app-header">
-                        <div class="app-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="app-icon" data-app-icon="contact-b" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                             <i class="fas fa-address-book"></i>
                         </div>
-                        <h3>連絡先【B】</h3>
+                        <h3 data-app-name="contact-b">連絡先【B】</h3>
                     </div>
-                    <p class="app-description">シンプルで使いやすい連絡先管理アプリです。大切な連絡先を安全に管理し、必要な時にすぐにアクセスできます。</p>
-                    <div class="app-features">
-                        <span class="feature-tag">連絡先管理</span>
-                        <span class="feature-tag">バックアップ</span>
-                        <span class="feature-tag">検索機能</span>
-                    </div>
+                    <p class="app-description" data-app-desc="contact-b">格安SIMの通話料節約サービスと連携して、電話代を安くできる連絡先アプリ。大切な連絡先を整理して、スマートに管理できます。</p>
                     <div class="app-links">
                         <a href="apps/contact-b/" class="link-item">
                             <span>📋</span> アプリ概要
@@ -104,13 +103,6 @@
             <div class="card">
                 <h2>お問い合わせ</h2>
                 <p>アプリケーションに関するご質問やお問い合わせは、各アプリのサポートページからお願いいたします。</p>
-                <p>緊急のお問い合わせや全般的なご質問については、以下のメールアドレスまでご連絡ください：</p>
-                <p style="font-size: 1.1rem; margin-top: 1rem;">
-                    <strong>メール:</strong> support@example.com
-                </p>
-                <p style="color: #666; font-size: 0.9rem; margin-top: 1rem;">
-                    ※ 返信には2-3営業日かかる場合がございます。
-                </p>
             </div>
         </section>
 
@@ -126,10 +118,9 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 アプリサポートセンター. All rights reserved.</p>
+            <p data-copyright="main">&copy; 2025 Beowulf-Technology. All rights reserved.</p>
             <p>
-                <a href="apps/contact-b/privacy.html" style="color: white; margin-right: 1rem;">プライバシーポリシー</a>
-                <a href="apps/contact-b/terms.html" style="color: white;">利用規約</a>
+                <a href="privacy.html" style="color: white;">プライバシーポリシー</a>
             </p>
         </div>
     </footer>

@@ -1,0 +1,122 @@
+{
+  "app": {
+    "id": "contact-b",
+    "name": "連絡先【B】",
+    "tagline": "割安通話にも対応したシンプルで使いやすい「連絡先」アプリ",
+    "description": "格安SIMの通話料節約サービスと連携して、電話代を安くできる連絡先アプリ。大切な連絡先を整理して、スマートに管理できます。",
+    "icon": {
+      "type": "image",
+      "value": "assets/images/contact-b-icon.png",
+      "gradient": ""
+    },
+    "version": "2.1.0",
+    "lastUpdated": "2025-09-24"
+  },
+
+  "features": {
+    "main": [
+      {
+          "title": "スマートな連絡先整理",
+          "icon": "fas fa-users",
+          "description": "友達、仕事、家族などのグループに分けて、見つけやすく整理できます"
+        },
+        {
+          "title": "通話料節約ダイヤル",
+          "icon": "fas fa-phone",
+          "description": "格安SIMの節約サービス（G-Call、みおふぉんダイアルなど）を自動で使って電話代を安くします"
+        },
+        {
+          "title": "かんたんグループ管理",
+          "icon": "fas fa-layer-group",
+          "description": "連絡先をグループに分けて、色分けや並び替えで見やすく管理できます"
+        },
+        {
+          "title": "賢い電話機能",
+          "icon": "fas fa-phone-alt",
+          "description": "110番や119番は普通に、一般電話は節約モードで、自動で適切にダイヤルします"
+        },
+        {
+          "title": "よく使う連絡先",
+          "icon": "fas fa-star",
+          "description": "緊急連絡先と最近電話した人にすぐアクセスできる便利機能"
+        }
+    ],
+    "additional": [
+        "名前・会社名・電話番号で検索",
+        "名前順・会社名順など7種類の並び替え",
+        "似たような会社名をまとめて表示",
+        "番号通知・非通知の切り替え",
+        "複数の格安SIM節約サービス対応",
+        "よく使う項目でワンタッチ送信",
+        "緊急連絡先に素早くアクセス"
+     ]
+  },
+
+  "requirements": {
+    "ios": {
+      "minVersion": "17.6",
+      "devices": ["iPhone", "iPad"],
+      "languages": ["日本語"],
+      "universal": true,
+      "note": "現在iOS版のみの提供となっております。"
+    },
+    "android": {
+      "available": false
+    }
+  },
+
+  "pricing": {
+    "type": "free",
+    "note": "完全無料でご利用いただけます"
+  },
+
+  "faq": [
+    {
+      "question": "アプリは無料ですか？",
+      "answer": "はい、完全無料でご利用いただけます。"
+    },
+    {
+      "question": "データはどこに保存されますか？",
+      "answer": "データは端末内に安全に保存されます。"
+    },
+    {
+      "question": "機種変更時のデータ移行は可能ですか？",
+      "answer": "はい、iCloudを使用してデータを移行できます。"
+    },
+    {
+      "question": "通話料金を節約できますか？",
+      "answer": "はい、G-Callやみおふぉんダイアルなどの格安通話サービスと連携して通話料金を節約できます。"
+    }
+  ],
+
+  "links": {
+    "appStore": "https://appstoreconnect.apple.com/apps/6752541302",
+    "googlePlay": "",
+    "website": "",
+    "support": "support.html",
+    "privacy": "privacy.html",
+    "terms": "terms.html"
+  },
+
+  "screenshots": [
+    {
+      "url": "",
+      "caption": "ホーム画面"
+    },
+    {
+      "url": "",
+      "caption": "連絡先詳細"
+    },
+    {
+      "url": "",
+      "caption": "検索機能"
+    }
+  ],
+
+  "metadata": {
+    "category": "ユーティリティ",
+    "contentRating": "4+",
+    "developer": "Beowulf-Technology",
+    "compatibility": "iOS 17.6以降"
+  }
+}
