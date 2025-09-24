@@ -11,6 +11,12 @@
     <script src="../../assets/js/config.js"></script>
     <!-- アプリ情報ローダー -->
     <script src="../../assets/js/app-loader.js"></script>
+    <script>
+        // デバッグ用：エラーを確認
+        window.addEventListener('error', function(e) {
+            console.error('Error:', e.message, e.filename, e.lineno, e.colno);
+        });
+    </script>
 
     <style>
         /* アプリ固有のスタイル */
