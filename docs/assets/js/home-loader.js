@@ -20,6 +20,26 @@ async function loadAppDescriptions() {
                 if (data.app && data.app.description) {
                     element.textContent = data.app.description;
                 }
+
+                // アイコンも更新（同じアプリIDのdata-app-icon要素を探す）
+                const iconElement = document.querySelector(`[data-app-icon="${appId}"]`);
+                if (iconElement && data.app && data.app.icon) {
+                    const icon = data.app.icon;
+                    if (icon.type === 'image') {
+                        iconElement.style.background = 'transparent';
+                        iconElement.style.padding = '0';
+                        iconElement.style.overflow = 'hidden';
+                        iconElement.style.borderRadius = '22.5%';
+                        const iconPath = `apps/${appId}/${icon.value}`;
+                        iconElement.innerHTML = `<img src="${iconPath}" alt="${data.app.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
+                    }
+                }
+
+                // 名前も更新（同じアプリIDのdata-app-name要素を探す）
+                const nameElement = document.querySelector(`[data-app-name="${appId}"]`);
+                if (nameElement && data.app && data.app.name) {
+                    nameElement.textContent = data.app.name;
+                }
             }
         } catch (error) {
             console.error(`Failed to load app-info.json for ${appId}:`, error);
