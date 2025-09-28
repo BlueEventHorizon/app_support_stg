@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サポート - しるドア</title>
+    <meta name="description" content="しるドアアプリケーションのサポート。お問い合わせはこちらから。">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- 設定ファイル -->
+    <script src="../../assets/js/config.js"></script>
+    <!-- メールフォームハンドラー -->
+    <script src="../../assets/js/mailto-form.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <ul>
+                <li class="nav-brand">
+                    <a href="../../">アプリサポートセンター</a>
+                </li>
+                <li><a href="../../">ホーム</a></li>
+                <li><a href="index.html">しるドア</a></li>
+                <li><a href="terms.html">利用規約</a></li>
+                <li><a href="privacy.html">プライバシーポリシー</a></li>
+                <li><a href="support.html">サポート</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="hero">
+            <h1>サポートセンター</h1>
+            <p>お困りのことがございましたら、お気軽にお問い合わせください</p>
+        </div>
+
+        <section style="margin-bottom: 3rem;">
+            <div class="app-grid">
+                <div class="card">
+                    <h3>よくあるご質問</h3>
+                    <p>お問い合わせ前に、<a href="index.html#faq">よくある質問</a>をご確認ください。多くの問題はこちらで解決できる可能性があります。</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="index.html#faq" class="btn btn-secondary">FAQを見る</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <h2>お問い合わせフォーム</h2>
+
+                <div class="alert alert-info" style="margin-bottom: 2rem;">
+                    <p>お問い合わせの前に、アプリを最新バージョンにアップデートしているかご確認ください。多くの問題は最新版で解決されています。</p>
+                </div>
+
+                <form id="contactForm">
+
+                    <div class="form-group">
+                        <label for="name">お名前 <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="山田 太郎">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">メールアドレス <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="example@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">お問い合わせ種別 <span class="required">*</span></label>
+                        <select id="category" name="category" required>
+                            <option value="">選択してください</option>
+                            <option value="bug">不具合・バグ報告</option>
+                            <option value="feature">機能要望</option>
+                            <option value="usage">使い方について</option>
+                            <option value="account">アカウント関連</option>
+                            <option value="payment">支払い・課金について</option>
+                            <option value="other">その他</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="device">ご利用のデバイス</label>
+                        <select id="device" name="device">
+                            <option value="">選択してください</option>
+                            <option value="iphone">iPhone</option>
+                            <option value="ipad">iPad</option>
+                            <option value="ipod-touch">iPod touch</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="os-version">OSバージョン</label>
+                        <input type="text" id="os-version" name="os_version" placeholder="例: iOS 17.0, iOS 16.5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="app-version">アプリバージョン</label>
+                        <input type="text" id="app-version" name="app_version" placeholder="例: 2.1.0">
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">
+                            ※アプリの設定画面から確認できます
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">件名 <span class="required">*</span></label>
+                        <input type="text" id="subject" name="subject" required placeholder="お問い合わせの概要をご記入ください">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+                        <textarea id="message" name="message" required rows="8"
+                                  placeholder="できるだけ詳しくご記入ください。&#10;&#10;不具合の場合：&#10;- いつ発生したか&#10;- どのような操作をしたか&#10;- エラーメッセージの内容&#10;- 再現性があるか"></textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                            <input type="checkbox" required style="width: auto; margin-top: 0.25rem;">
+                            <span>
+                                <a href="../../privacy.html" target="_blank">プライバシーポリシー</a>を確認し、同意します <span class="required">*</span>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button type="submit" class="btn" id="submitBtn">メールで送信</button>
+                    </div>
+                </form>
+
+                <div id="formMessage" style="display: none; margin-top: 2rem;"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p data-copyright="sirudoor">&copy; 2025 しるドア. All rights reserved.</p>
+            <p>
+                <a href="privacy.html" style="color: white; margin-right: 1rem;">プライバシーポリシー</a>
+                <a href="terms.html" style="color: white;">利用規約</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

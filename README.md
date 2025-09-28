@@ -1,66 +1,43 @@
 # アプリサポートサイト
 
-iOSアプリケーションのサポートサイトです。静的サイトジェネレーターを使わず、純粋なHTML/JavaScript/CSSで構築されています。
+モバイルアプリケーションのサポートサイトです。静的サイトジェネレーターを使わず、純粋なHTML/CSS/JavaScriptで構築されています。
 
 ## 特徴
 
-- 📱 iOS専用アプリのサポート
-- 🚀 ビルドプロセス不要の静的サイト
-- 📝 Markdownファイルによるドキュメント管理
-- 🔧 JSONベースのコンテンツ管理（app-info.json）
+- 📱 モバイルアプリのサポートドキュメント提供
+- 🚀 ビルドプロセス不要の純粋な静的サイト
 - 📧 シンプルなmailtoリンクによるお問い合わせフォーム
-- ⚙️ 中央集約型の設定管理（config.js）
+- 🎨 レスポンシブデザインとグラデーション背景
+- 📄 利用規約とプライバシーポリシーのテンプレート
+- 🌐 GitHub PagesやWebサーバーに直接デプロイ可能
 
 ## ディレクトリ構成
 
 ```
 docs/
-├── index.html                    # トップページ
-├── privacy.html                  # サイト全体のプライバシーポリシー
+├── index.html                    # ランディングページ（アプリ一覧）
 ├── assets/
 │   ├── css/
-│   │   └── style.css            # サイト全体のスタイル
+│   │   └── style.css            # 共通スタイルシート
 │   └── js/
-│       ├── config.js            # 中央設定ファイル
-│       ├── home-loader.js       # トップページ用データローダー
-│       ├── app-loader.js        # アプリ詳細ページ用ローダー
-│       ├── markdown-loader.js   # Markdownファイルローダー
 │       └── mailto-form.js      # メールフォームハンドラー
 └── apps/
-    └── contact-b/               # アプリごとのディレクトリ
-        ├── app-info.json        # アプリの全情報
-        ├── index.html           # アプリ詳細ページ
-        ├── support.html         # サポートページ
-        ├── privacy.md           # プライバシーポリシー
-        ├── privacy.html         # プライバシーポリシー表示用
-        ├── terms.md            # 利用規約
-        ├── terms.html          # 利用規約表示用
-        └── assets/
-            └── images/
-                └── contact-b-icon.png  # アプリアイコン
+    └── contact-b/               # 例：アプリごとのディレクトリ
+        ├── index.html           # アプリ概要ページ
+        ├── support.html         # サポートフォーム
+        ├── privacy.html         # プライバシーポリシー
+        └── terms.html           # 利用規約
 ```
 
 ## セットアップ
 
 ### 1. 基本設定
 
-`docs/assets/js/config.js` を編集して、サイト全体の設定を行います：
+本番デプロイ前に以下の項目をカスタマイズしてください：
 
-```javascript
-const CONFIG = {
-    // 会社・サービス情報
-    company: {
-        name: "あなたの組織名",
-        copyright: "© 2025 あなたの組織名. All rights reserved."
-    },
-
-    // 連絡先情報
-    contact: {
-        mainEmail: "contact.btype@gmail.com",
-        supportEmail: "contact.btype@gmail.com"
-    }
-};
-```
+- **メールアドレス**: サポートページとプライバシーページのメールアドレスを実際のものに変更
+- **会社情報**: フッターの会社/サービス名を更新
+- **法的文書**: 利用規約とプライバシーポリシーを事業に合わせて修正
 
 ### 2. お問い合わせフォームの仕組み
 
@@ -78,9 +55,11 @@ const CONFIG = {
 3. mailtoリンクを生成してメールクライアントを起動
 4. ユーザーがメールを送信
 
-### 3. ローカルサーバーでの動作確認
+### 3. ローカルでの動作確認
 
-Markdownファイルの読み込みには HTTPサーバーが必要です：
+静的HTMLサイトなので、`docs/index.html`をブラウザで直接開くだけで動作確認できます。
+
+HTTPサーバーを使う場合：
 
 ```bash
 # Python 3
@@ -88,67 +67,45 @@ cd docs
 python3 -m http.server 8000
 
 # Node.js
-npx http-server
+npx http-server docs
 
 # VS Code
 # Live Server拡張機能を使用
 ```
 
-ブラウザで http://localhost:8000 にアクセスして確認。
-
 ## 新しいアプリの追加
 
-1. テンプレートを参照： [APP_TEMPLATE.md](APP_TEMPLATE.md)
-2. `docs/apps/your-app-id/` ディレクトリを作成
-3. 必要なファイルを配置（app-info.json が最重要）
-4. トップページ（index.html）にアプリカードを追加
+1. `docs/apps/[app-name]/` ディレクトリを作成
+2. `contact-b/` から4つのHTMLファイルをコピー
+3. 各ファイルのアプリ固有の内容を更新
+4. `docs/index.html` にアプリカードを追加
+5. サポートページ用の新しいメールアドレスを設定
 
 ## カスタマイズ
 
-詳細なカスタマイズ方法は [CUSTOMIZE.md](CUSTOMIZE.md) を参照してください。
+詳細なカスタマイズ方法は `docs/CUSTOMIZE.md` を参照してください。
 
-### アプリ情報の管理
+### アイコン設定
 
-各アプリの情報は `app-info.json` で一元管理されています：
-
-- アプリの基本情報（名前、説明、アイコン）
-- 機能一覧
-- 動作環境
-- 料金体系
-- よくある質問
-- 各種リンク
-
-詳細は [APP_INFO_GUIDE.md](APP_INFO_GUIDE.md) を参照してください。
+3つの方法でアプリアイコンを設定可能（`docs/ICON_CUSTOMIZATION.md`参照）：
+1. 絵文字 - シンプル、依存関係なし
+2. Font Awesome - プロフェッショナルなアイコンライブラリ
+3. カスタム画像 - `docs/assets/images/icons/` に配置
 
 ## 主な機能
 
-### 動的コンテンツ読み込み
+### スタイリングシステム
 
-- `data-app` 属性：app-info.json からデータを自動読み込み
-- `data-config` 属性：config.js から設定を自動適用
-- `data-markdown` 属性：Markdownファイルを自動変換・表示
-
-### アイコン表示
-
-アプリアイコンは3種類の方法で設定可能：
-
-1. 画像ファイル（推奨）
-2. Font Awesomeアイコン
-3. 絵文字
-
-App Store標準の22.5%角丸が自動適用されます。
+- CSSカスタムプロパティによるテーマ設定
+- グラデーション背景のアプリカード
+- レスポンシブグリッドレイアウト
+- 機能タグとアクションボタン
 
 ## トラブルシューティング
-
-### Markdownが読み込まれない
-
-- `file://` プロトコルではCORS制限により読み込めません
-- HTTPサーバー経由でアクセスしてください
 
 ### アイコンが表示されない
 
 - 画像パスが正しいか確認
-- app-info.json の設定を確認
 - ブラウザの開発者ツールでエラーを確認
 
 ### メールクライアントが開かない
@@ -156,21 +113,18 @@ App Store標準の22.5%角丸が自動適用されます。
 - ブラウザの設定でメールクライアントが設定されているか確認
 - 代替案：表示されたメールアドレスに直接送信
 
-## 現在のステータス
+## デプロイ
 
-### ✅ 実装済み機能
+### GitHub Pages
 
-- お問い合わせフォーム（mailtoリンク方式）
-- アプリ詳細ページ（連絡先【B】）
-- プライバシーポリシー・利用規約
-- 動的コンテンツ読み込み（JSON/Markdown）
-- レスポンシブデザイン
+1. リポジトリの Settings > Pages
+2. Source: Deploy from a branch
+3. Branch: main, フォルダ: /docs
+4. Save で公開完了
 
-### 📝 今後の追加予定
+### その他のホスティング
 
-- 追加アプリのサポートページ
-- FAQ の充実
-- 多言語対応（必要に応じて）
+`docs/` ディレクトリの内容をWebサーバーにアップロードするだけでデプロイ完了です。
 
 ## 技術スタック
 
@@ -184,8 +138,16 @@ App Store標準の22.5%角丸が自動適用されます。
 
 © 2025 Beowulf-Technology. All rights reserved.
 
+## 重要な注意事項
+
+- **日本語**: サイトは主に日本語で構成されています
+- **メール設定**: プレースホルダーのメールアドレス（contact.btype@gmail.com等）を本番用に変更してください
+- **法的文書**: 利用規約とプライバシーポリシーを事業要件に合わせて確認・修正してください
+- **レスポンシブ**: すべてのページはモバイル対応です。変更時はモバイル表示を確認してください
+
 ## 関連ドキュメント
 
-- [APP_INFO_GUIDE.md](APP_INFO_GUIDE.md) - app-info.json の詳細仕様
-- [APP_TEMPLATE.md](APP_TEMPLATE.md) - 新規アプリ追加の完全ガイド
-- [CUSTOMIZE.md](CUSTOMIZE.md) - カスタマイズガイド
+- [CLAUDE.md](CLAUDE.md) - Claude Code用の開発ガイドライン
+- [docs/CUSTOMIZE.md](docs/CUSTOMIZE.md) - カスタマイズガイド
+- [docs/ICON_CUSTOMIZATION.md](docs/ICON_CUSTOMIZATION.md) - アイコンカスタマイズガイド
+- [docs/LAYOUT_EXAMPLE.md](docs/LAYOUT_EXAMPLE.md) - レイアウトの例

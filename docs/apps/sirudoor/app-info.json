@@ -1,0 +1,123 @@
+{
+  "app": {
+    "id": "sirudoor",
+    "name": "しるドア",
+    "tagline": "音を検知して通知",
+    "description": "リビングから離れた場所でお仕事や作業をしていると、リビングにあるドアフォンの音が聞こえず、配達などを受け取り損なうことはないでしょうか？このアプリは事前に登録したドアフォンなどの電子音を監視、判定して、ネットワークを介して別の部屋で作業中のもうひとつのiPhoneやMacに通知を送ります。",
+    "icon": {
+      "type": "image",
+      "value": "assets/images/sirudoor-icon.png",
+      "gradient": ""
+    },
+    "version": "1.1",
+    "lastUpdated": "2023-04-21"
+  },
+
+  "features": {
+    "main": [
+      {
+          "title": "電子音検知",
+          "icon": "fas fa-bell",
+          "description": "ドアフォンなどの電子音を自動で検知します"
+        },
+        {
+          "title": "ネットワーク通知",
+          "icon": "fas fa-wifi",
+          "description": "別の部屋のiPhoneやMacに通知を送信"
+        },
+        {
+          "title": "音の事前登録",
+          "icon": "fas fa-microphone",
+          "description": "検知したい電子音を事前に登録できます"
+        },
+        {
+          "title": "リモートワーク対応",
+          "icon": "fas fa-home",
+          "description": "在宅勤務中でも配達を逃しません"
+        },
+        {
+          "title": "マルチデバイス対応",
+          "icon": "fas fa-mobile-alt",
+          "description": "iPhone、iPad、Macで利用可能"
+        }
+    ],
+    "additional": [
+        "電子音のみ検知（人の声は検知不可）",
+        "使わなくなったiPhoneを活用可能",
+        "リビングに設置して別室で通知受信",
+        "ドアフォン音の聞き逃し防止",
+        "配達受け取り漏れを防ぐ",
+        "シンプルな操作画面",
+        "省電力設計"
+     ]
+  },
+
+  "requirements": {
+    "ios": {
+      "minVersion": "16.0",
+      "devices": ["iPhone", "iPad", "iPod touch"],
+      "languages": ["日本語"],
+      "universal": true,
+      "note": "2台のiPhoneが必要です（検知用と通知受信用）"
+    },
+    "android": {
+      "available": false
+    }
+  },
+
+  "pricing": {
+    "type": "free",
+    "note": "完全無料・アプリ内課金なし"
+  },
+
+  "faq": [
+    {
+      "question": "どんな音を検知できますか？",
+      "answer": "ドアフォンなどの電子音のみ検知可能です。人の声は検知できません。"
+    },
+    {
+      "question": "何台のデバイスが必要ですか？",
+      "answer": "最低2台のiPhoneが必要です。1台は音を検知する用、もう1台は通知を受け取る用です。"
+    },
+    {
+      "question": "古いiPhoneでも使えますか？",
+      "answer": "iOS 16.0以降に対応していれば、古いiPhoneでも検知用デバイスとして活用できます。"
+    },
+    {
+      "question": "通知はどのように届きますか？",
+      "answer": "ネットワーク経由で別の部屋にあるiPhoneやMacに通知が送信されます。"
+    }
+  ],
+
+  "links": {
+    "appStore": "https://apps.apple.com/jp/app/しるドア-音を検知して通知/id1642638211",
+    "googlePlay": "",
+    "website": "",
+    "support": "support.html",
+    "privacy": "privacy.html",
+    "terms": "terms.html"
+  },
+
+  "screenshots": [
+    {
+      "url": "",
+      "caption": "音検知画面"
+    },
+    {
+      "url": "",
+      "caption": "通知設定"
+    },
+    {
+      "url": "",
+      "caption": "音の登録"
+    }
+  ],
+
+  "metadata": {
+    "category": "ライフスタイル",
+    "contentRating": "4+",
+    "developer": "Katsuhiko Terada",
+    "compatibility": "iOS 16.0以降",
+    "size": "943.1 KB"
+  }
+}
