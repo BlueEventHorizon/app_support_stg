@@ -55,7 +55,7 @@
   "requirements": {
     "ios": {
       "minVersion": "16.0",
-      "devices": ["iPhone", "iPad", "iPod touch"],
+      "devices": ["iPhone", "iPad"],
       "languages": ["日本語"],
       "universal": true,
       "note": "2台のiPhoneが必要です（検知用と通知受信用）"

@@ -27,7 +27,12 @@ const CONFIG = {
         contactB: {
             name: "連絡先【B】",
             copyright: "© 2025 Beowulf-Technology. All rights reserved.",
-            description: "シンプルで使いやすい連絡先管理アプリです。"
+            description: "シンプルで使いやすい連絡先管理アプリです"
+        },
+        sirudoor: {
+            name: "しるドア",
+            copyright: "© 2025 Beowulf-Technology. All rights reserved.",
+            description: "音を検知して通知"
         }
     },
 
@@ -71,6 +76,8 @@ function applyConfig() {
             element.textContent = CONFIG.company.copyright;
         } else if (appName === 'contactB') {
             element.textContent = CONFIG.apps.contactB.copyright;
+        } else if (appName === 'sirudoor') {
+            element.textContent = CONFIG.apps.sirudoor.copyright;
         }
     });
 }
