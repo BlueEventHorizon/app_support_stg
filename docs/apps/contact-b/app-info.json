@@ -1,7 +1,7 @@
 {
   "app": {
     "id": "contact-b",
-    "name": "連絡先【B】",
+    "name": "連絡先B型",
     "tagline": "割安通話にも対応したシンプルで使いやすい「連絡先」アプリ",
     "description": "格安SIMの通話料節約サービスと連携して、電話代を安くできる連絡先アプリ。大切な連絡先を整理して、スマートに管理できます。",
     "icon": {
@@ -10,7 +10,7 @@
       "gradient": ""
     },
     "version": "2.1.0",
-    "lastUpdated": "2025-09-24"
+    "lastUpdated": "2025-09-29"
   },
 
   "features": {
@@ -90,7 +90,7 @@
   ],
 
   "links": {
-    "appStore": "https://appstoreconnect.apple.com/apps/6752541302",
+    "appStore": "https://appstoreconnect.apple.com/apps/967774150",
     "googlePlay": "",
     "website": "",
     "support": "support.html",
